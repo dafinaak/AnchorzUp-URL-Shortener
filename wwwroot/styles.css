@@ -1,0 +1,565 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background-color: #f8f9fa;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+
+.sidebar {
+    width: 300px;
+    background-color: #f2f2f2;
+    padding: 20px;
+    border-right: 1px solid #e0e0e0;
+    overflow-y: auto;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 15px;
+    margin-left: -20px;
+}
+
+.logo-icon {
+    width: 400px;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-right: 0px;
+    margin-left: 0px;
+}
+
+.logo-image {
+    width: 90%;
+    height: 200%;
+    object-fit: contain;
+}
+
+.logo-text {
+    color: #333333;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.sidebar-title {
+    color: #000;
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    margin-top: 0px;
+    text-align: left;
+}
+
+.url-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.url-item {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 12px 0;
+    background: none;
+    border: none;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.url-link {
+    color: #1a73e8;
+    text-decoration: underline;
+    font-size: 14px;
+    flex: 1;
+    margin-right: 10px;
+    word-break: break-all;
+    display: block;
+    margin-bottom: 2px;
+}
+
+.url-link:hover {
+    text-decoration: underline;
+}
+
+.delete-btn {
+    background: none;
+    border: none;
+    color: #333333;
+    cursor: pointer;
+    padding: 4px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    font-size: 12px;
+    margin-top: 2px;
+}
+
+.delete-btn:hover {
+    background: none;
+    color: #d93025;
+}
+
+.click-count {
+    font-size: 14px;
+    color: #9bb7f4;
+    margin-top: 4px;
+    display: block;
+    font-weight: 400;
+}
+
+.expired-indicator {
+    font-size: 12px;
+    color: #d93025;
+    margin-top: 2px;
+    display: block;
+    font-weight: 600;
+    background-color: rgba(217, 48, 37, 0.1);
+    padding: 2px 6px;
+    border-radius: 4px;
+    display: inline-block;
+}
+
+.main-content {
+    flex: 1;
+    padding: 40px 40px 40px 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.main-title {
+    color: #000;
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 40px;
+    margin-top: 0px;
+    text-align: left;
+    height: 70px;
+    display: flex;
+    align-items: center;
+}
+
+.input-section {
+    width: 100%;
+    max-width: 800px;
+}
+
+.input-row {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 25px;
+    align-items: flex-start;
+}
+
+.url-input {
+    flex: 2;
+    padding: 18px 20px;
+    border: 1px solid #e9ecef;
+    border-radius: 10px;
+    font-size: 16px;
+    outline: none;
+    transition: all 0.3s ease;
+    background-color: white;
+    font-weight: 400;
+}
+
+.url-input:focus {
+    border-color: #333333;
+    background-color: white;
+    box-shadow: 0 0 0 3px rgba(51, 51, 51, 0.1);
+}
+
+.url-input::placeholder {
+    color: #6c757d;
+}
+
+.shorten-btn {
+    background: #990099;
+    color: white;
+    border: none;
+    padding: 18px 30px;
+    border-radius: 0px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(153, 0, 153, 0.3);
+    min-width: 140px;
+    width: auto;
+    display: inline-block;
+    margin-top: 20px;
+}
+
+.shorten-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(153, 0, 153, 0.4);
+}
+
+.shorten-btn:active {
+    transform: translateY(0);
+}
+
+.shorten-btn:disabled {
+    background: #6c757d;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.expiration-section {
+    position: relative;
+    flex: 1;
+    min-width: 200px;
+}
+
+.expiration-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 20px;
+    border: 1px solid #e9ecef;
+    border-radius: 10px;
+    background-color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 16px;
+    color: #6c757d;
+    font-weight: 400;
+    height: 58px;
+    box-sizing: border-box;
+}
+
+.expiration-toggle:hover {
+    border-color: #333333;
+    background-color: white;
+    box-shadow: 0 0 0 3px rgba(51, 51, 51, 0.1);
+}
+
+.dropdown-arrow {
+    transition: transform 0.2s;
+    font-size: 16px;
+    color: #6c757d;
+}
+
+.expiration-toggle.active .dropdown-arrow {
+    transform: rotate(180deg);
+}
+
+.expiration-options {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: white;
+    border: 1px solid #e9ecef;
+    border-top: none;
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+    display: none;
+    overflow: hidden;
+}
+
+.expiration-options.show {
+    display: block;
+}
+
+.option {
+    padding: 16px 20px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 16px;
+    color: #212529;
+    border-bottom: 1px solid #333333;
+    font-weight: 400;
+}
+
+.option:last-child {
+    border-bottom: none;
+}
+
+.option:hover {
+    background-color: #f8f9fa;
+    color: #990099;
+}
+
+.option.selected {
+    background-color: #e8f0fe;
+    color: #0d6efd;
+    font-weight: 500;
+}
+
+.loading {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #f3f3f3;
+    border-top: 2px solid #8b5cf6;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.success-message {
+    background-color: #d4edda;
+    color: #155724;
+    padding: 12px 16px;
+    border-radius: 8px;
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+.error-message {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 12px 16px;
+    border-radius: 8px;
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+.url-actions {
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+}
+
+.qr-toggle-btn {
+    background: none;
+    border: none;
+    color: #333333;
+    cursor: pointer;
+    padding: 4px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    font-size: 12px;
+    margin-top: 2px;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+.qr-toggle-btn:hover {
+    background-color: #e8f0fe;
+    color: #1a73e8;
+}
+
+.qr-code-section {
+    margin-top: 12px;
+    padding: 12px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+}
+
+.qr-code-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.qr-code-image {
+    width: 150px;
+    height: 150px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    background-color: white;
+    padding: 8px;
+}
+
+.qr-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.qr-download-btn {
+    background: linear-gradient(135deg, #28a745, #20c997);
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.qr-download-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(40, 167, 69, 0.3);
+}
+
+.qr-download-btn:active {
+    transform: translateY(0);
+}
+
+@media (max-width: 1024px) {
+    .container {
+        flex-direction: column;
+    }
+    
+    .sidebar {
+        width: 100%;
+        height: auto;
+        border-right: none;
+        border-bottom: 1px solid #e0e0e0;
+        padding: 20px;
+    }
+    
+    .main-content {
+        padding: 20px;
+    }
+    
+    .logo-icon {
+        width: 300px;
+        height: 80px;
+    }
+    
+    .input-row {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .expiration-section {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+    
+    .sidebar {
+        width: 100%;
+        height: auto;
+        border-right: none;
+        border-bottom: 1px solid #e0e0e0;
+        padding: 15px;
+    }
+    
+    .main-content {
+        padding: 15px;
+    }
+    
+    .logo-icon {
+        width: 250px;
+        height: 60px;
+    }
+    
+    .main-title {
+        font-size: 24px;
+        height: 60px;
+    }
+    
+    .input-row {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .url-input {
+        width: 100%;
+        font-size: 16px;
+    }
+    
+    .expiration-section {
+        width: 100%;
+    }
+    
+    .expiration-toggle {
+        font-size: 14px;
+        padding: 12px 16px;
+    }
+    
+    .shorten-btn {
+        width: 100%;
+        font-size: 16px;
+        padding: 15px;
+    }
+    
+    .url-item {
+        flex-direction: column;
+        gap: 10px;
+        padding: 15px;
+    }
+    
+    .url-actions {
+        align-self: flex-start;
+    }
+    
+    .qr-code-image {
+        width: 120px;
+        height: 120px;
+    }
+}
+
+@media (max-width: 480px) {
+    .sidebar {
+        padding: 10px;
+    }
+    
+    .main-content {
+        padding: 10px;
+    }
+    
+    .logo-icon {
+        width: 200px;
+        height: 50px;
+    }
+    
+    .main-title {
+        font-size: 20px;
+        height: 50px;
+    }
+    
+    .sidebar-title {
+        font-size: 16px;
+    }
+    
+    .url-input {
+        font-size: 14px;
+        padding: 12px;
+    }
+    
+    .expiration-toggle {
+        font-size: 12px;
+        padding: 10px 12px;
+    }
+    
+    .shorten-btn {
+        font-size: 14px;
+        padding: 12px;
+    }
+    
+    .url-item {
+        padding: 12px;
+    }
+    
+    .qr-code-image {
+        width: 100px;
+        height: 100px;
+    }
+}

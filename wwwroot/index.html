@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>AnchorzUp - URL Shortener</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+
+        <div class="sidebar">
+            <div class="logo">
+                <div class="logo-icon">
+                    <img src="images/logo.png" alt="AnchorzUp Logo" class="logo-image">
+                </div>
+            </div>
+            <h2 class="sidebar-title">My shortened URLs</h2>
+            <div id="url-list" class="url-list">
+
+            </div>
+        </div>
+
+        <div class="main-content">
+            <h1 class="main-title">URL Shortener</h1>
+            
+            <div class="input-section">
+                <div class="input-row">
+                    <input type="url" id="url-input" placeholder="Paste the URL to be shortened" class="url-input">
+                    <div class="expiration-section">
+                        <div class="expiration-toggle" id="expiration-toggle">
+                            <span>Add expiration date</span>
+                            <span class="dropdown-arrow">v</span>
+                        </div>
+                        <div id="expiration-options" class="expiration-options">
+                            <div class="option" data-minutes="1">1 minute</div>
+                            <div class="option" data-minutes="5">5 minutes</div>
+                            <div class="option" data-minutes="30">30 minutes</div>
+                            <div class="option" data-minutes="60">1 hour</div>
+                            <div class="option" data-minutes="300">5 hours</div>
+                        </div>
+                    </div>
+                </div>
+                <button id="shorten-btn" class="shorten-btn">Shorten URL</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
