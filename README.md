@@ -13,9 +13,9 @@
 # Navigate to Desktop or desired folder
 cd Desktop
 
-# Clone the repository (replace with the GitHub link you receive)
-git clone https://github.com/dafinaak/Url-Shortener.git
-cd Url-Shortener/Url-Shortener
+# Clone the repository
+git clone https://github.com/dafinaak/AnchorzUp-URL-Shortener.git
+cd AnchorzUp-URL-Shortener
 
 # Alternative: Download as ZIP from GitHub
 # Click "Code" -> "Download ZIP" -> Extract to Desktop
